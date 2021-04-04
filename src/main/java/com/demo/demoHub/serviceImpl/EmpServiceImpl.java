@@ -48,10 +48,10 @@ public class EmpServiceImpl implements EmployeeService {
 	
 	@Override
 	public Result updateEmp(Employee emp) {
-		Employee er = empRepo.findById(emp.getId()).get();
+		Employee er = empRepo.findById(emp.getId()).get(); 
 		Result result = new Result();
 		if((er != null)) {
-			er.setName(emp.getName());
+			er.setName(emp.getName()); 
 			empRepo.save(er);
 			result.setSuccess(Boolean.TRUE);
 			result.setError("no error occured");
