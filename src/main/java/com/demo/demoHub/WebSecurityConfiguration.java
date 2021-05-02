@@ -42,6 +42,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		web.ignoring()
 					.antMatchers("/authenticate")
 					.antMatchers("/empverify")
+					.antMatchers("/getallusers")
 					.antMatchers("/login");  //This method filter out the Authenticate method and supress the url from spring security
 	}
 
@@ -57,7 +58,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //			.and()
 			.authorizeRequests()   
 			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-			.antMatchers("/authenticate","/register").permitAll()
+			.antMatchers("/authenticate","/register","/getallusers").permitAll()
 			.antMatchers("/empverify").permitAll()
 			.antMatchers("/login").permitAll()
 			.anyRequest().authenticated() //any method after above would have authenticated
